@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - "./data/mongo:/data/db"
+  pyserver:
+    env_file:
+      - .env
+    container_name: be_currency_exchange_monitor
+    image: pyserver:latest
+    build: .
+    ports:
+      - "8001:8000"
+    environment:
+      - MONGO_HOST=mongo
