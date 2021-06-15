@@ -1,6 +1,9 @@
 from configparser import ConfigParser
 import requests
 
+from utils import convert_dic_to_list
+
+
 config_file = "../config.ini"
 config = ConfigParser()
 config.read(config_file)
@@ -15,5 +18,4 @@ exchange_data = response.json()["rates"]
 
 exchange_data = {key: value for (key, value) in dict(exchange_data).items() if key in currencies_list}
 
-print(currencies_list)
-print(exchange_data)
+convert_dic_to_list(exchange_data)
