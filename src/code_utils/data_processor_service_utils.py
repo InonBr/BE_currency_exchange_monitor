@@ -1,4 +1,3 @@
-import uuid
 from db import upload_to_db
 
 

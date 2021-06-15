@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 import requests
 
-from utils import convert_dic_to_list
+from code_utils import convert_dic_to_list
 
 
 config_file = "../config.ini"
