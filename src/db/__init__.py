@@ -1,0 +1,1 @@
+from db.data_processor_service_db import upload_to_db
