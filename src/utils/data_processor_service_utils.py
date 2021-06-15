@@ -1,11 +1,8 @@
-from db import upload_to_db
-
-
 def convert_dic_to_list(dic):
     list_of_dic = [{key: value} for key, value in dic.items()]
     list_of_dic = create_mongo_dic(list_of_dic)
 
-    upload_to_db(list_of_dic)
+    return list_of_dic
 
 
 def create_mongo_dic(list_of_dic):

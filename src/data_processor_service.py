@@ -1,8 +1,7 @@
-from configparser import ConfigParser
 import requests
-
-from code_utils import convert_dic_to_list
-
+from configparser import ConfigParser
+from utils import convert_dic_to_list
+from module import MongoClass
 
 config_file = "../config.ini"
 config = ConfigParser()
@@ -18,4 +17,5 @@ exchange_data = response.json()["rates"]
 
 exchange_data = {key: value for (key, value) in dict(exchange_data).items() if key in currencies_list}
 
-convert_dic_to_list(exchange_data)
+list_of_dic = convert_dic_to_list(exchange_data)
+MongoClass.upload_to_db(list_of_dic)

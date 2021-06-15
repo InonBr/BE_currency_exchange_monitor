@@ -1,4 +1,4 @@
-from db import get_all_stocks
+from module import MongoClass
 from configparser import ConfigParser
 
 config_file = "../config.ini"
@@ -7,7 +7,7 @@ config.read(config_file)
 
 threshold = int(config.get("threshold", "threshold_value"))
 
-stocks = get_all_stocks()
+stocks = MongoClass.get_all_stocks()
 
 print(stocks)
 print(threshold)
