@@ -11,7 +11,7 @@ services:
   pyserver:
     env_file:
       - .env
-    container_name: be_currency_exchange_monitor
+    container_name: data_processor_service
     image: pyserver:latest
     build: .
     ports:

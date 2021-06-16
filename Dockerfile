@@ -5,11 +5,11 @@ RUN pip install -r ./requirements.txt
 
 
 
-#RUN mkdir /app
-#WORKDIR /app
-#COPY src .
-#
-#
-#
-#
-#CMD ["python", "main.py"]
+RUN mkdir /app
+WORKDIR /app
+COPY src .
+
+
+
+
+CMD ["python", "main.py"]

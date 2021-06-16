@@ -5,7 +5,7 @@
 build the app (without using cache)
 
 ```
-sudo docker-compose build -no-cache
+sudo docker-compose build --no-cache
 ```
 
 run docker file
