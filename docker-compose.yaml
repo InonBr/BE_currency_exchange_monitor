@@ -16,6 +16,8 @@ services:
     build: .
     ports:
       - "8001:8000"
+      - "8002:8000"
+      - "8003:8000"
     environment:
       - MONGO_HOST=mongo
 

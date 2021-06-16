@@ -13,5 +13,6 @@ stocks = MongoClass.get_all_stocks()
 stocks = filter_by_threshold(stocks, threshold)
 
 for i in consumer:
-    producer.send(topicName, stocks)
-    producer.flush()
+    if len(stocks) > 0:
+        producer.send(topicName, stocks)
+        producer.flush()
