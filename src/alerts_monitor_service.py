@@ -1,13 +1,13 @@
 from module import MongoClass
-from configparser import ConfigParser
+from utils import get_threshold_from_config
+from kafka import KafkaConsumer
 
-config_file = "../config.ini"
-config = ConfigParser()
-config.read(config_file)
+consumer = KafkaConsumer('get_data_from_mongo', bootstrap_servers=['localhost:9092'])
 
-threshold = int(config.get("threshold", "threshold_value"))
+threshold = get_threshold_from_config()
 
 stocks = MongoClass.get_all_stocks()
 
-print(stocks)
-print(threshold)
+for i in consumer:
+    print(stocks)
+    print(threshold)

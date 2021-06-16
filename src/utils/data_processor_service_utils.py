@@ -1,5 +1,16 @@
 from configparser import ConfigParser
+from kafka import KafkaProducer
 import requests
+import json
+
+
+def kafka_set_up():
+    bootstrap_servers = ['localhost:9092']
+    producer = KafkaProducer(bootstrap_servers=bootstrap_servers)
+    producer = KafkaProducer()
+    producer = KafkaProducer(value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+
+    return producer
 
 
 def get_exchange_data():
