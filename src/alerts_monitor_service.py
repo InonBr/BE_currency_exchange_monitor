@@ -16,7 +16,7 @@ def collect_data_from_db_and_alert():
 
     stocks = filter_by_threshold(stocks, threshold)
 
-    if len(stocks) > 0:
+    if stocks:
         producer.send(topic_name, stocks)
         producer.flush()
         print("alert created")

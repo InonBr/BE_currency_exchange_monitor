@@ -17,4 +17,5 @@ def fetch_and_upload_to_db():
 
     print("db as been updated")
 
+
 fetch_and_upload_to_db()
