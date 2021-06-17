@@ -1,18 +1,25 @@
 from module import MongoClass
 from utils import get_threshold_from_config, filter_by_threshold, kafka_set_up
-from kafka import KafkaConsumer
+import threading
 
-producer = kafka_set_up()
-topicName = 'alert_created'
-consumer = KafkaConsumer('get_data_from_mongo', bootstrap_servers=['localhost:9092'])
 
-threshold = get_threshold_from_config()
+def collect_data_from_db_and_alert():
+    # will run it every 35 seconds
+    threading.Timer(35.0, collect_data_from_db_and_alert).start()
 
-stocks = MongoClass.get_all_stocks()
+    producer = kafka_set_up()
+    topic_name = 'alert_created'
 
-stocks = filter_by_threshold(stocks, threshold)
+    threshold = get_threshold_from_config()
 
-for i in consumer:
+    stocks = MongoClass.get_all_stocks()
+
+    stocks = filter_by_threshold(stocks, threshold)
+
     if len(stocks) > 0:
-        producer.send(topicName, stocks)
+        producer.send(topic_name, stocks)
         producer.flush()
+        print("alert created")
+
+
+collect_data_from_db_and_alert()

@@ -9,4 +9,4 @@ for data in consumer:
 
     response = webhook_post_request(decoded_data)
 
-    print(response)
+    print(f"response code: {response}")
