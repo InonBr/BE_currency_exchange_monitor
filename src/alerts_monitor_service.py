@@ -19,7 +19,7 @@ def collect_data_from_db_and_alert():
     if stocks:
         producer.send(topic_name, stocks)
         producer.flush()
-        print("alert created")
+        print(topic_name)
 
 
 collect_data_from_db_and_alert()

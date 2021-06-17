@@ -1,4 +1,4 @@
-from utils import convert_dic_to_list, currencies_list_from_config, get_exchange_data, kafka_set_up
+from utils import convert_dic_to_list, currencies_list_from_config, get_exchange_data
 from module import MongoClass
 import threading
 
