@@ -4,8 +4,9 @@ import threading
 
 
 def fetch_and_upload_to_db():
-    # will run it every 30 seconds
-    threading.Timer(30.0, fetch_and_upload_to_db).start()
+    # will run it every 10 seconds
+    threading.Timer(10.0, fetch_and_upload_to_db).start()
+
     currencies_list = currencies_list_from_config()
 
     exchange_data = get_exchange_data()

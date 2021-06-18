@@ -10,7 +10,7 @@ def string_to_list(currencies_list):
 
 
 def webhook_post_request(decoded_data):
-    config_file = "../config.ini"
+    config_file = "config.ini"
     config = ConfigParser()
     config.read(config_file)
 

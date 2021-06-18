@@ -22,7 +22,7 @@ def get_exchange_data():
 
 
 def currencies_list_from_config():
-    config_file = "../config.ini"
+    config_file = "config.ini"
     config = ConfigParser()
     config.read(config_file)
 

@@ -9,29 +9,60 @@ services:
       - "./data/mongo:/data/db"
 
   pyserver:
-    env_file:
-      - .env
-    container_name: data_processor_service
+    container_name: py_data_processor_service
     image: pyserver:latest
-    build: .
+    build: docker/py_data_processor_service
+    volumes:
+      - ./src:/src
     ports:
       - "8001:8000"
-      - "8002:8000"
-      - "8003:8000"
     environment:
       - MONGO_HOST=mongo
+    depends_on:
+      - mongo
+      - kafka
+
+#  pyserver2:
+#    container_name: py_alerts_monitor_service
+#    image: pyserver:latest
+#    build: docker/py_alerts_monitor_service
+#    volumes:
+#      - ./src:/src
+#    ports:
+#      - "8002:8000"
+#    environment:
+#      - MONGO_HOST=mongo
+#    depends_on:
+#      - mongo
+#      - kafka
+#
+#  pyserver3:
+#    container_name: py_alerts_handler_service
+#    image: pyserver:latest
+#    build: docker/py_alerts_handler_service
+#    volumes:
+#      - ./src:/src
+#    ports:
+#      - "8003:8000"
+#    environment:
+#      - MONGO_HOST=mongo
+#    depends_on:
+#      - pyserver2
 
   zookeeper:
     image: wurstmeister/zookeeper
-    container_name: zookeeper
     ports:
       - 2181:2181
+    depends_on:
+      - mongo
 
   kafka:
     image: wurstmeister/kafka
-    container_name: kafka
     ports:
       - 9092:9092
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - mongo
+      - zookeeper

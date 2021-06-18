@@ -2,7 +2,8 @@ import pymongo
 
 
 class MongoClass:
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    # client = pymongo.MongoClient("mongodb://0.0.0.0:27017/")
+    client = pymongo.MongoClient("mongodb://mongo:27017/")
     db = client["stocks"]
     collection = db["stocks_collection"]
 
