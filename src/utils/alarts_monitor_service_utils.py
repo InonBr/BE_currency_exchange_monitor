@@ -8,6 +8,7 @@ def filter_by_threshold(dic, threshold):
 
 
 def get_threshold_from_config():
+    # CR: Use env var for the file name
     config_file = "config.ini"
     config = ConfigParser()
     config.read(config_file)

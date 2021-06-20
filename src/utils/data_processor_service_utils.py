@@ -5,6 +5,7 @@ import json
 
 
 def kafka_set_up():
+    # CR: use env var / configuration for the URL
     bootstrap_servers = ['localhost:9092']
     producer = KafkaProducer(bootstrap_servers=bootstrap_servers)
     producer = KafkaProducer()
@@ -14,6 +15,7 @@ def kafka_set_up():
 
 
 def get_exchange_data():
+    # CR: use env var / configuration for the URL
     exchange_api = 'https://api.exchangerate.host/latest'
     response = requests.get(exchange_api)
     exchange_data = response.json()["rates"]
@@ -22,6 +24,7 @@ def get_exchange_data():
 
 
 def currencies_list_from_config():
+    # CR: use env var / configuration for the filename
     config_file = "config.ini"
     config = ConfigParser()
     config.read(config_file)

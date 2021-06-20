@@ -4,6 +4,7 @@ import threading
 
 
 def fetch_and_upload_to_db():
+    # CR: hardcoded value should be in the config
     # will run it every 10 seconds
     threading.Timer(10.0, fetch_and_upload_to_db).start()
 

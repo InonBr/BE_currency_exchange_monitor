@@ -1,6 +1,8 @@
 from kafka import KafkaConsumer
 from utils import string_to_list, webhook_post_request
 
+# CR: do not just call the code directly but use a bootstrapping function "__main__"
+
 consumer = KafkaConsumer('alert_created', bootstrap_servers=['localhost:9092'])
 
 for data in consumer:

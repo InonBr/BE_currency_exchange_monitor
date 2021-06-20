@@ -1,0 +1,29 @@
+* Since we're dealing with Microservices architecture, I recommend to restructure the whole project so 
+    every service will have its own sub-project.
+    I suggest the following structure:
+
+    - alerts_handler
+        requirements.txt
+        conf.ini
+        src:
+            - init.py
+            - logic.py
+    - alerts_monitor
+        requirements.txt
+        conf.ini
+        src
+            - init.py
+            - logic.py
+
+    etc...
+
+* All hardcoded values throughout the code should be configured externally via ENV VAR or in the config.ini
+    Example:
+        - URLs
+        - Time consts
+        - file names
+        etc.
+
+
+
+

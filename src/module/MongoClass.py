@@ -1,8 +1,12 @@
 import pymongo
 
 
+# CR: Rename this class to have more indicative name, you may call it CurrencyExchangeRepository:
 class MongoClass:
+    # CR: do not hardcode the URL
     client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+    # CR: do not leave commented code
     # client = pymongo.MongoClient("mongodb://mongo:27017/")
     db = client["stocks"]
     collection = db["stocks_collection"]
