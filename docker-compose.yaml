@@ -22,32 +22,29 @@ services:
       - mongo
       - kafka
 
-  pyserver2:
+  alert_monitor:
     container_name: monitor_service
-    image: pyserver:latest
     build: docker/monitor_service
     volumes:
       - ./src:/src
     ports:
-      - "8002:8000"
+      - "8002:8002"
     environment:
       - MONGO_HOST=mongo
     depends_on:
       - mongo
       - kafka
-#
-  pyserver3:
+
+  handler_service:
     container_name: handler_service
-    image: pyserver:latest
     build: docker/handler_service
     volumes:
       - ./src:/src
     ports:
-      - "8003:8000"
+      - "8003:8003"
     environment:
       - MONGO_HOST=mongo
     depends_on:
-      - pyserver2
       - kafka
       - mongo
 

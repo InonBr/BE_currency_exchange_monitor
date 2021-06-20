@@ -16,7 +16,7 @@ def fetch_and_upload_to_db():
     list_of_dic = convert_dic_to_list(exchange_data)
     MongoClass.upload_to_db(list_of_dic)
 
-    print("db as been updated")
+    print("DB has been updated.")
 
 
 fetch_and_upload_to_db()

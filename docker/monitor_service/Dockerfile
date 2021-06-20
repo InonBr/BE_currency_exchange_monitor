@@ -10,4 +10,4 @@ WORKDIR /src
 
 EXPOSE 8002
 
-CMD ["python", "alerts_monitor_service.py"]
+CMD ["python3", "alerts_monitor_service.py"]
