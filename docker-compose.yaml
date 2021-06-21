@@ -13,14 +13,13 @@ services:
     image: pyserver:latest
     build: docker/processor_service
     volumes:
-      - ./src:/src
+      - ./data_processor_service:/data_processor_service
     ports:
       - "8001:8000"
     environment:
       - MONGO_HOST=mongo
     depends_on:
       - mongo
-      - kafka
 
   alert_monitor:
     container_name: monitor_service

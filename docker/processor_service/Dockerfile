@@ -6,7 +6,7 @@ COPY  requirements.txt .
 
 RUN pip install -r requirements.txt
 
-WORKDIR /src
+WORKDIR /data_processor_service
 
 EXPOSE 8001
 
