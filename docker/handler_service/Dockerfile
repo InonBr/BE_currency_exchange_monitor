@@ -6,8 +6,8 @@ COPY  requirements.txt .
 
 RUN pip install -r requirements.txt
 
-WORKDIR /src
+WORKDIR /alerts_monitor_service
 
 EXPOSE 8003
 
-CMD ["python3", "alerts_handler_service.py"]
+CMD ["python3", "zzzzzz.py"]
