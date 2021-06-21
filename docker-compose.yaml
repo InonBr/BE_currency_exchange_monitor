@@ -10,12 +10,11 @@ services:
 
   pyserver:
     container_name: processor_service
-    image: pyserver:latest
     build: docker/processor_service
     volumes:
       - ./data_processor_service:/data_processor_service
     ports:
-      - "8001:8000"
+      - "8001:8001"
     environment:
       - MONGO_HOST=mongo
     depends_on:
@@ -23,12 +22,11 @@ services:
 
   alert_monitor:
     container_name: monitor_service
-    image: pyserver:latest
     build: docker/monitor_service
     volumes:
-      - ./alerts_monitor_service:/alerts_monitor_service
+      - ./monitor_service:/monitor_service
     ports:
-      - "8002:8000"
+      - "8002:8002"
     environment:
       - MONGO_HOST=mongo
     depends_on:
@@ -37,12 +35,11 @@ services:
 
   handler_service:
     container_name: handler_service
-    image: pyserver:latest
     build: docker/handler_service
     volumes:
-      - ./alerts_handler_service:/alerts_handler_service
+      - ./handler_service:/handler_service
     ports:
-      - "8003:8000"
+      - "8003:8003"
     environment:
       - MONGO_HOST=mongo
     depends_on:
